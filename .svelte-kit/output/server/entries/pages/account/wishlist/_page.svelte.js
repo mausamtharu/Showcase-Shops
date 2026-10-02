@@ -1,0 +1,29 @@
+import { S as attr, a as head, c as stringify, i as ensure_array_like, r as derived, w as escape_html } from "../../../../chunks/server.js";
+import { r as formatPrice } from "../../../../chunks/utils2.js";
+import { t as wishlist } from "../../../../chunks/wishlist.svelte.js";
+//#region src/routes/account/wishlist/+page.svelte
+function _page($$renderer, $$props) {
+	$$renderer.component(($$renderer) => {
+		let { data } = $$props;
+		const wishlistedProducts = derived(() => data.allProducts.filter((p) => wishlist.isWishlisted(p.id)));
+		head("1tucooc", $$renderer, ($$renderer) => {
+			$$renderer.title(($$renderer) => {
+				$$renderer.push(`<title>My Wishlist — ShowCase Shops</title>`);
+			});
+		});
+		$$renderer.push(`<div class="min-h-screen py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-8"><div><nav class="flex items-center gap-2 text-xs text-white/50 mb-3 uppercase tracking-wider"><a href="/" class="hover:text-gold transition-colors">Home</a> <span>/</span> <span class="text-white">Wishlist</span></nav> <div class="flex items-center justify-between"><h1 class="font-heading font-bold text-3xl text-white">Saved Collections</h1> <span class="text-xs px-3 py-1 rounded-full border border-white/10 text-white/70 bg-surface">${escape_html(wishlist.count)} ${escape_html(wishlist.count === 1 ? "item" : "items")}</span></div></div> `);
+		if (wishlistedProducts().length === 0) $$renderer.push(`<!--[0--><div class="card p-12 text-center border border-white/10 max-w-md mx-auto my-12 bg-surface"><div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center bg-surface-2 text-white/30"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div> <h2 class="font-heading text-xl font-semibold text-white mb-2">Your Wishlist is Empty</h2> <p class="text-xs text-white/50 mb-6 leading-relaxed">Save your favorite handcrafted items, traditional silks, and fine jewels to purchase them later.</p> <a href="/products" class="btn btn-primary">Discover Products</a></div>`);
+		else {
+			$$renderer.push(`<!--[-1--><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"><!--[-->`);
+			const each_array = ensure_array_like(wishlistedProducts());
+			for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+				let item = each_array[$$index];
+				$$renderer.push(`<div class="card border border-white/10 overflow-hidden bg-surface flex flex-col justify-between group hover:border-white/20 transition-all duration-300"><div class="relative aspect-square overflow-hidden bg-black"><img${attr("src", item.imageUrl)}${attr("alt", item.name)} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/> <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-red-400 transition-colors" aria-label="Remove from wishlist">✕</button></div> <div class="p-5 flex-1 flex flex-col justify-between space-y-4"><div><div class="text-[11px] uppercase tracking-wider text-gold font-semibold">${escape_html(item.shopName || "Boutique")}</div> <h3 class="font-heading font-medium text-white text-base mt-1 hover:text-gold transition-colors"><a${attr("href", `/products/${stringify(item.id)}`)}>${escape_html(item.name)}</a></h3> <div class="mt-2 text-sm font-mono font-bold text-white">${escape_html(formatPrice(item.discountPrice ?? item.price))}</div></div> <button class="btn btn-primary w-full py-2.5 text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg> Move to Bag</button></div></div>`);
+			}
+			$$renderer.push(`<!--]--></div>`);
+		}
+		$$renderer.push(`<!--]--></div>`);
+	});
+}
+//#endregion
+export { _page as default };

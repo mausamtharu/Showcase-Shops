@@ -1,0 +1,98 @@
+{
+	"/": [
+		"src/routes/+page.server.ts",
+		"src/routes/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/account/orders": [
+		"src/routes/account/orders/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/account/wishlist": [
+		"src/routes/account/wishlist/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/api/owner/shops": [
+		"src/routes/api/owner/shops/+server.ts"
+	],
+	"/cart": [
+		"src/routes/+layout.server.ts"
+	],
+	"/checkout": [
+		"src/routes/checkout/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo": [
+		"src/routes/+layout.server.ts"
+	],
+	"/demo/better-auth": [
+		"src/routes/demo/better-auth/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/demo/better-auth/login": [
+		"src/routes/demo/better-auth/login/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/forgot-password": [
+		"src/routes/+layout.server.ts"
+	],
+	"/login": [
+		"src/routes/+layout.server.ts"
+	],
+	"/owner": [
+		"src/routes/owner/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/owner/dashboard": [
+		"src/routes/owner/dashboard/+page.server.ts",
+		"src/routes/owner/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/owner/orders": [
+		"src/routes/owner/orders/+page.server.ts",
+		"src/routes/owner/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/owner/products": [
+		"src/routes/owner/products/+page.server.ts",
+		"src/routes/owner/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/owner/products/new": [
+		"src/routes/owner/products/new/+page.server.ts",
+		"src/routes/owner/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/owner/products/[id]/edit": [
+		"src/routes/owner/products/[id]/edit/+page.server.ts",
+		"src/routes/owner/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/owner/shop": [
+		"src/routes/owner/shop/+page.server.ts",
+		"src/routes/owner/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/products": [
+		"src/routes/products/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/products/[id]": [
+		"src/routes/products/[id]/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/register": [
+		"src/routes/+layout.server.ts"
+	],
+	"/reset-password": [
+		"src/routes/+layout.server.ts"
+	],
+	"/shops": [
+		"src/routes/shops/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/shop/[slug]": [
+		"src/routes/shop/[slug]/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	]
+}

@@ -1,0 +1,1 @@
+import"./BPK6X1w-.js";import{o as e}from"./93_DP2pG.js";var t=()=>{let t=e;return{page:{subscribe:t.page.subscribe},navigating:{subscribe:t.navigating.subscribe},updated:t.updated}},n={subscribe(e){return t().page.subscribe(e)}};export{n as t};

@@ -1,0 +1,10 @@
+export declare function formatPrice(amount: number | string, currency?: string): string;
+export declare function formatPriceCompact(amount: number | string): string;
+export declare function formatDate(date: Date | string): string;
+export declare function formatRelativeTime(date: Date | string): string;
+export declare function slugify(text: string): string;
+export declare function generateOrderNumber(): string;
+export declare function calcDiscount(price: number | string, discountPrice: number | string | null): number;
+export declare function cn(...classes: (string | undefined | null | false)[]): string;
+export declare function getStarArray(rating: number): ('full' | 'half' | 'empty')[];
+export declare function truncate(str: string, length?: number): string;
